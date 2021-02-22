@@ -1,9 +1,8 @@
 <template>
   <div id="hy-swiper">
-    <div
-      class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
+      <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
       <slot></slot>
-    </div>
+      </div>
 
     <slot name="indicator"></slot>
 

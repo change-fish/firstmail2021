@@ -23,7 +23,7 @@ body{
   user-select:none;/* 禁止用户鼠标在页面上选中图片文字 */
   -webkit-tap-highlight-color:transparent;
   /* webkit是苹果浏览器引擎 */
-  background:var(--color-background);
+  background:#fef;
   color:var(--color-text);
   width: 100vm;
   overflow: scroll;

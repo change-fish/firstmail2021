@@ -1,7 +1,7 @@
 <template>
-<div class="swiper">
-  <swiper>
-      <swiper-item v-for="(item,index) in banner" :key="index" class="slide">
+<div class="swiper-wrapper">
+  <swiper >
+      <swiper-item v-for="(item,index) in banner" :key="index" >
         <a :href="item.link">
           <img :src="item.image" alt="">
         </a>
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-.swiper{
+.swiper-wrapper{
   margin-top:44px ;
 }
 .slide{

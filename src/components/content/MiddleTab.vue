@@ -28,6 +28,7 @@ export default {
   methods:{
     middleTabClick(index){
       this.currentIndex = index
+      this.$emit('midTabClick',index)
     },
   }
 }
@@ -36,7 +37,8 @@ export default {
 <style scoped>
 .middle-tab{
   display: flex;
-  height: 40px;
+  height: 54px;
+  background-color: #fff;
 }
 .middle-tab-item{
   flex: 1;
