@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="backtop">
     <img src="~assets/img/backtop.jpg" alt="">
   </div>
 </template>
@@ -13,5 +13,11 @@ export default {
 img{
   width: 30px;
   height: 30px;
+}
+.backtop{
+  z-index: 12; 
+  position:fixed;
+  bottom:55px;
+  right: 18px;
 }
 </style>

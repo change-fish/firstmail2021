@@ -14,8 +14,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
- @import '~assets/css/fontawesome/css/all.css'; 
-
 #tab-bar{
   display: flex;
   background-color: #ddd;
@@ -26,5 +24,4 @@ export default {
   height: 49px;
   box-shadow: 0px -10px 1px rgba(100, 100, 100, .1);
 }
-
 </style>

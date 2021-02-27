@@ -56,7 +56,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.handleDom();
-    }, 1000);
+    }, 500);
   },
   methods: {
     /**
@@ -65,7 +65,8 @@ export default {
     handleDom() {
       // 1.获取要操作的元素
       let swiperEl = document.querySelector(".swiper");
-      let slidesEls = swiperEl.getElementsByClassName("slide");
+      //let slidesEls = swiperEl.getElementsByClassName("slide");
+      let slidesEls = document.getElementsByClassName("slide");
 
       // 2.保存个数
       this.slideCount = slidesEls.length;

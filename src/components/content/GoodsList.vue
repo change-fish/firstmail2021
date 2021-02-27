@@ -1,9 +1,13 @@
 <template>
   <div class="goods">
-    <goods-list-item  class="goods-item" v-for="(item,index) in goods" :key=index>
+    <goods-list-item 
+    class="goods-item" 
+    v-for="(item,index) in goods" 
+    :key="index"
+    :goodsitem="item">
       <template v-slot:goods-img>
         <div class="goods-img">
-          <img :src="item.show.img" alt="">
+          <img :src="item.show.img" alt="" @load="imgLoad">
         </div>
       </template>
       <template v-slot:goods-info>
@@ -34,6 +38,30 @@ export default {
       }
     }
   },
+  methods:{
+
+    /* imgLoad(){
+      //防止函数频繁执行
+      console.log('imgload')
+    }, */
+    imgLoad(){
+        /* const load = this.debounce(() => {console.log('imgload')},5000)
+        load() */
+    }, 
+    //可以将imgLoad函数传入到debounce中，生成一个新的函数
+    //debounce第一个参数是个函数，第二个是延迟事件
+    //...args是指可以传入多个参数
+     /* debounce(fun,delay){
+      let timer = null
+      return function(...args) {
+        if(timer)clearTimeout(timer)
+        timer = setTimeout(() => {
+          fun.apply(this,args)
+        },delay)
+      }
+    }, */
+  },
+  
 }
 </script>
 

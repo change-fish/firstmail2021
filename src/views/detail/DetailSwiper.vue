@@ -1,10 +1,8 @@
 <template>
-<div class="swiper-wrapper">
-  <swiper >
-      <swiper-item v-for="(item,index) in banner" :key="index" >
-        <a :href="item.link">
-          <img :src="item.image" alt="" @load="imageLoad">
-        </a>
+<div>
+  <swiper class="detail-wrapper">
+      <swiper-item v-for="(item,index) in topImages" :key="index" >
+          <img :src="item" alt="">
       </swiper-item>
   </swiper>
 </div>
@@ -15,13 +13,13 @@ import Swiper from 'components/common/Swiper'
 import SwiperItem from 'components/common/SwiperItem'
 
 export default {
-  name:'HomeSwiper',
+  name:'DetailSwiper',
   components:{
     Swiper,
     SwiperItem,
   },
   props:{
-    banner:{
+    topImages:{
       type:Array,
       default(){
         return []
@@ -30,17 +28,10 @@ export default {
   },
   data(){
     return {
-      isLoad:true
     }
   },
   methods:{
-    imageLoad(){
-      if(this.isLoad){
-        this.$emit('imageLoad')
-        this.isLoad = false
-        //console.log('1');
-      }
-    },
+    
   },
 }
 </script>
@@ -52,6 +43,10 @@ export default {
 }
 .slide img{
   width: 100%;
+}
+.detail-wrapper{
+  height: 300px;
+  overflow: hidden;
 }
 </style>
 
