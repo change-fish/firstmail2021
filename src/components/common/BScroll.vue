@@ -53,7 +53,6 @@ export default {
      // console.log(position);
       this.$emit('scroll1',position)
       //console.log(this.bScroll);
-      
     })
 
     //监听上拉加载更多
@@ -68,6 +67,10 @@ export default {
         this.bScroll.refresh()
       },2000)
     })
+    },
+
+    getSaveY(){
+      return this.bScroll ? this.bScroll.y : 0
     },
     
   },

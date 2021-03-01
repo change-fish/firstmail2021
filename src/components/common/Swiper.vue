@@ -13,7 +13,7 @@
           class="indi-item"
           :class="{
             active:
-              index === currentIndex - 1 || (currentIndex === 5 && index === 0),
+              index === currentIndex - 1 || (currentIndex === (slideCount+1) && index === 0),
           }"
           :key="index"
         ></div>
@@ -147,7 +147,7 @@ export default {
     /**
      * 拖动事件的处理
      */
-    /* touchStart(e) {
+     /* touchStart(e) {
         // 1.如果正在滚动, 不可以拖动
         if (this.scrolling) return;
 
@@ -187,8 +187,8 @@ export default {
 
         // 4.移动完成后重新开启定时器
         this.startTimer();
-      },
- */
+      }, */
+ 
     /**
      * 控制上一个, 下一个
      */

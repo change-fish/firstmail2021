@@ -13,7 +13,10 @@ const routes = [
   },
   {
     path: '/home',
-    component: Home
+    component: Home,
+    meta: {
+      keepAlive: true //添加keepAlive属性
+    }
   },
   {
     path: '/Category',

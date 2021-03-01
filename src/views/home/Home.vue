@@ -12,7 +12,7 @@
         :class="{midtab1 : isMidTabShow}"
         @midTabClick="changeGoods"
         ref="midtab1">
-      </middle-tab>
+    </middle-tab>
     <b-scroll 
     class="goods-wrapper" 
     ref="bscroll" 
@@ -76,6 +76,7 @@ export default {
       midTabOffsetTop:null,
       isMidTabFixed:false,
       isMidTabShow:true,
+      saveY:0,//页面滚动的位置
     };
   },
   
@@ -90,11 +91,16 @@ export default {
     this.homeGoods("new");
     this.homeGoods("sell");
   },
-  mounted(){
-      //this.swiperLoad()
+  activated(){
+    //这里和老师代码顺序不同，否则会出现返回顶部的情况
+    this.$refs.bscroll.bScroll.refresh()
+    console.log(this.saveY);
+    this.$refs.bscroll.bScroll.scrollTo(0,this.saveY,0)
+    
   },
-  unmounted(){
-   //console.log('destroyed');
+  deactivated(){
+    this.saveY = this.$refs.bscroll.getSaveY()
+    console.log(this.saveY);
   },
   methods: {
     //获取轮播图数据
@@ -154,14 +160,12 @@ export default {
     },
     //加载更多数据
     pullData(){
-      //console.log('111');
       this.homeGoods(this.currentgoods)
       //这里需要再调用一次这个方法才能上拉进行下一次加载
       this.$refs.bscroll.bScroll.finishPullUp()
     },
     //判断miatab的offsetTop
     swiperLoad(){
-      //console.log('111');
       this.midTabOffsetTop = this.$refs.midtab2.$el.offsetTop
       //console.log(this.midTabOffsetTop)
     },
