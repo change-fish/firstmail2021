@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 .goods-info{
-  padding-bottom:20px ;
+  padding: 20px 0;
   border-bottom: 2px solid #ccc;
 }
 .info-title{

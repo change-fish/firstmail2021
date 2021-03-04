@@ -27,7 +27,7 @@ export default {
     //判断是否需要监听上拉加载
     pullUpLoad:{
       type:Boolean,
-      default:false,
+      default:true,//这个如果是false会报错，但不影响使用
     }
   },
   methods:{

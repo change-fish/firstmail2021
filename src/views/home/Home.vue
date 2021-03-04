@@ -94,13 +94,13 @@ export default {
   activated(){
     //这里和老师代码顺序不同，否则会出现返回顶部的情况
     this.$refs.bscroll.bScroll.refresh()
-    console.log(this.saveY);
+    //console.log(this.saveY);
     this.$refs.bscroll.bScroll.scrollTo(0,this.saveY,0)
     
   },
   deactivated(){
     this.saveY = this.$refs.bscroll.getSaveY()
-    console.log(this.saveY);
+    //console.log(this.saveY);
   },
   methods: {
     //获取轮播图数据
@@ -122,7 +122,7 @@ export default {
         this.goods[type].page += 1;
       });
     },
-    //监听商品导航栏的事件
+    //监听商品导航栏的点击事件
     changeGoods(index) {
       //console.log(index)
       if (index === 0) {
@@ -136,10 +136,10 @@ export default {
       this.$refs.midtab1.currentIndex = index
       this.$refs.midtab2.currentIndex = index
     },
-    backTopClick() {
+    backTopClick() {   
       // console.log('回到顶部 ');
       //这里通过bscroll获取其内的bScroll
-      console.log(this.$refs.bscroll);
+      //console.log(this.$refs.bscroll);
       this.$refs.bscroll.bScroll.scrollTo(0, 0, 1000);
     },
     //1.按钮的显示与隐藏 2.判断midtab的位置

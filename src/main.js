@@ -10,7 +10,7 @@ app.use(store).use(router).mount('#app')
 //console.log(App);
 //console.log(app);
 //console.log(app.config);
-app.config.globalProperties.$bus = createApp({})
+//app.config.globalProperties.$bus = createApp({})
 
 /* if (process.env.NODE_ENV == 'development'){
   Vue.config.devtools = true

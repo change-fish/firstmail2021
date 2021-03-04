@@ -38,7 +38,7 @@ export default {
     detailParam: { 
       handler(newVal){ 
         this.params = newVal; 
-        console.log(newVal);
+        //console.log(newVal);
       }
     },
   }, 

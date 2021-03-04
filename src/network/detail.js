@@ -8,6 +8,12 @@ export function getGoodsDetail(iid){
     }
   })
 }
+export function getRecommend(){
+  return request({
+    url:'/recommend',
+    
+  })
+}
 
 //这里将放在不同地方的数据进行整合
 //商品信息

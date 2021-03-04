@@ -3,7 +3,7 @@
     <div class="detail-desc">{{detailData.desc}}</div>
     <div class="detail-key">{{detailImage.key}}</div>
     <div class="images">
-      <img v-for="(item, index) in detailImage.list" :key="index" :src="item" alt="">
+      <img v-for="(item, index) in detailImage.list" :key="index" :src="item" alt="" @load="imgLoad">
     </div>
   </div>
 </template>
@@ -15,6 +15,7 @@ export default {
     return {
       detailData:{},
       detailImage:[],
+      load:null,
     }
   },
   props:{
@@ -25,7 +26,6 @@ export default {
       }
     }
   },
-  
   //watch解决接收props的数据不完整，在mounted里只会执行一次，数据没有及时传递过来
   watch: { //监听父组件传过来的selectItems 
     detailInfo: { 
@@ -43,8 +43,25 @@ export default {
       }  */
     }, 
     immediate:true,//immediate:true代表如果在 wacth 里声明了之后，就会立即先去执行里面的handler方法，如果为false，不会在绑定的时候执行                    
-    deep:true//deep，默认值是 false，代表是否深度监听。 
+    //deep:true//deep，默认值是 false，代表是否深度监听。 
   }, 
+  mounted(){
+    this.load = this.debounce(() => {this.$emit('detailImageLoad')},500)
+  },
+  methods:{
+    imgLoad(){
+        this.load() 
+    }, 
+    debounce(fun,delay){
+      let timer = null
+      return function(...args) {
+        if(timer)clearTimeout(timer)
+        timer = setTimeout(() => {
+          fun.apply(this,args)
+        },delay)
+      }
+    },
+  },
 
 }
 </script>
