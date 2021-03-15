@@ -22,6 +22,7 @@ export default {
   left: 0;
   right: 0;
   height: 49px;
-  box-shadow: 0px -10px 1px rgba(100, 100, 100, .1);
+  border-top: 1px solid #bbb;
+  /* box-shadow: 0px -10px 1px rgba(100, 100, 100, .1); */
 }
 </style>

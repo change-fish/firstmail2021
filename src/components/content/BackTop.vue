@@ -1,6 +1,6 @@
 <template>
   <div class="backtop">
-    <img src="~assets/img/backtop.jpg" alt="">
+    <i class="fas fa-arrow-circle-up"></i>
   </div>
 </template>
 <script>
@@ -10,9 +10,9 @@ export default {
 }
 </script>
 <style scoped>
-img{
-  width: 30px;
-  height: 30px;
+.fas{
+  font-size: 25px;
+  color: #333;
 }
 .backtop{
   z-index: 12; 

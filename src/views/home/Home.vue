@@ -35,18 +35,18 @@
 </template>
 
 <script>
-import NavBar from "components/common/NavBar";
-import BScroll from "components/common/BScroll";
-import MiddleTab from "components/content/MiddleTab";
-import GoodsList from "components/content/GoodsList";
-import BackTop from "components/content/BackTop";
+import NavBar from "components/common/NavBar"
+import BScroll from "components/common/BScroll"
+import MiddleTab from "components/content/MiddleTab"
+import GoodsList from "components/content/GoodsList"
+import BackTop from "components/content/BackTop"
 
-import HomeSwiper from "./HomeSwiper";
-import HomeRecommend from "./HomeRecommend";
-import HomeFeature from "./HomeFeature";
+import HomeSwiper from "./HomeSwiper"
+import HomeRecommend from "./HomeRecommend"
+import HomeFeature from "./HomeFeature"
 
 //没有用default导出，需要使用大括号导入
-import { getHomeMultidata, getHomeGoods } from "network/home";
+import { getHomeMultidata, getHomeGoods } from "network/home"
 
 export default {
   name: "Home",

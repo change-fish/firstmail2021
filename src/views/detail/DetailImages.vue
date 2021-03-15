@@ -46,7 +46,7 @@ export default {
     //deep:true//deep，默认值是 false，代表是否深度监听。 
   }, 
   mounted(){
-    this.load = this.debounce(() => {this.$emit('detailImageLoad')},500)
+    this.load = this.debounce(() => {this.$emit('detailImageLoad')},1000)
   },
   methods:{
     imgLoad(){

@@ -22,7 +22,7 @@ export default {
   },
   data(){
     return{
-      currentIndex: 0
+      currentIndex: 0,
     }
   },
   methods:{
@@ -54,9 +54,9 @@ export default {
   height: 40px;
 }
 .active{
-  color:var(--color-high-text);
+  color:#f55;
 }
 .active span{
-  border-bottom:2px solid var(--color-high-text) ;
+  border-bottom:2px solid #f55 ;
 }
 </style>
