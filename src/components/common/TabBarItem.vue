@@ -44,6 +44,6 @@ export default {
   color: #555;
 }
 .active{
-  color:#f55
+  color:var(--color-high-text);
 }
 </style>

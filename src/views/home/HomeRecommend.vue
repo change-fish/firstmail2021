@@ -26,8 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.home-recommend{ 
-  /* background-color:#cf4; */
+.home-recommend{
   display: flex;
   text-align: center;
   padding: 15px 0;

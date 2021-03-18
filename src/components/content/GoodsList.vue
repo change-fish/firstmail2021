@@ -96,7 +96,7 @@ overflow: hidden;
 margin: 0 0 14px 0;
 }
 .goods-price{
-  color: rgb(255, 92, 92);
+  color: var(--color-high-text);
   font-size: 16px;
 }
 .goods-cfav{

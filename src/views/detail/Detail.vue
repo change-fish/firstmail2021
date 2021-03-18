@@ -22,13 +22,13 @@
 <script>
 
 import BScroll from 'components/common/BScroll.vue'
-import Toast from 'components/common/Toast.vue'
+import Toast from 'components/common/toast/Toast.vue' 
 import RecommendList from 'components/content/RecommendList.vue'
 import BackTop from "components/content/BackTop"
 
 import DetailNavBar from './DetailNavBar.vue'
 import DetailSwiper from './DetailSwiper.vue'
-import DetailInfo from './DetailInfo.vue'
+import DetailInfo from './DetailInfo.vue' 
 import DetailShop from './DetailShop.vue'
 import DetailImages from './DetailImages.vue'
 import DetailParam from './DetailParam.vue'
@@ -66,7 +66,7 @@ export default {
       titleY:[],//各部分的高度位置
       isShowTopBack:false,
       addCartMessage:"",
-      addCartShow:false
+      addCartShow:false 
     }
   },
   created(){
@@ -194,6 +194,8 @@ export default {
         setTimeout(() => {
           this.addCartShow = false
         },2000)
+
+        //this.$toast.show(res,2000)
       })
       //使用dispatch可以在action内返回一个promise函数，在这里使用then接收promise传递过来的
     },

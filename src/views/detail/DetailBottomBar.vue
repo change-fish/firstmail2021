@@ -64,7 +64,7 @@ export default {
   line-height: 45px;
 }
 .fas{
-  color: #f55;
+  color:var(--color-high-text);
 }
 .cart{
   background-color: #ff0;
@@ -72,7 +72,7 @@ export default {
 }
 .buy{
   color: #fff;
-  background-color: #f00;
+  background-color:var(--color-high-text);
   flex: 1;
 }
 </style>

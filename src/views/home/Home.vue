@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <div class="home-nav-wraper">
+    <div class="home-nav-wrapper">
       <nav-bar class="home-nav">
         <template v-slot:center>
           <div>购物街</div>
@@ -177,12 +177,12 @@ export default {
 #home {
   height: 100vh;
 }
-.home-nav-wraper {
+.home-nav-wrapper {
   overflow: hidden;
 }
 .home-nav {
   width: 100%;
-  background-color: rgb(255, 92, 92);
+  background-color: var(--color-high-text);
   color: #fff;
 }
 .goods-wrapper {
@@ -192,5 +192,4 @@ export default {
 .midtab1{
   display:none;
 }
-
 </style>

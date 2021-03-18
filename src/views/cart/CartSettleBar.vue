@@ -89,7 +89,7 @@ export default {
   border-radius: 50%;
 }
 .checked{
-  color: #f55;
+  color:var(--color-high-text);
   border:solid 1px #f55;
 }
 .total-price{
@@ -100,7 +100,7 @@ export default {
   width: 80px;
   height: 40px;
   color:#fff;
-  background-color: #f55;
+  background-color:var(--color-high-text);
   display: flex;
   justify-content:center;
   align-items: center;

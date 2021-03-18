@@ -4,7 +4,8 @@
 :root {
   /* --变量名：变量值    可以定义变量，在后面的css文件使用 */
   --color-text: #666;
-  --color-high-text: #ff5777;
+  /* --color-high-text: #ff5777; */
+  --color-high-text: #ff5555;
   --color-background: #fff;
   --font-size: 14px;
   --line-height: 1.5;

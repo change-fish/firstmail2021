@@ -83,8 +83,8 @@ export default {
   border-radius: 50%;
 }
 .checked{
-  color: #f55;
-  border:solid 1px #f55;
+  color: var(--color-high-text);
+  border:solid 1px var(--color-high-text);
 }
 .cart-img{
   /* width: 80px;
@@ -119,7 +119,7 @@ img{
 }
 .price{
   flex: 4;
-  color: #f55;
+  color:var(--color-high-text);
 } 
 .count{
   flex:1;

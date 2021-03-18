@@ -8,7 +8,23 @@ export default {
   props:{
     message:String,
     show:Boolean,
-  }
+  },
+ /*  data(){
+    return {
+      message:'',
+      isShow:false,
+    }
+  },
+  methods:{
+    show(message,duration){
+      this.isShow = true
+      this.message = message
+      setTimeout(() => {
+          this.isShow = false
+          this.message = ""
+        },duration)
+    }, 
+  }*/
 }
 </script>
 

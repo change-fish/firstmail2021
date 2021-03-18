@@ -47,7 +47,7 @@ export default {
 }
 .navbar{
   width: 100%;
-  background-color: #f55;
+  background-color:var(--color-high-text);
   position: relative;
   z-index: 9;
 }
