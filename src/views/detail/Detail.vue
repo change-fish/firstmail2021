@@ -12,7 +12,7 @@
       <detail-param :detailParam="paraminfo" ref="params"></detail-param>
       <detail-comment :commentInfo="commentInfo" ref="comments"></detail-comment>
       <recommend-list :recommends="recommends" ref="recommends"></recommend-list>
-      <!-- 这里和首页goodslist组件一样，复制了一份 -->
+      <!-- 这里和首页goodslist组件一样，复制了一份,改了拿图片的方式 -->
     </b-scroll>
     <detail-bottom-bar @addToCart="addCart"></detail-bottom-bar>
     <back-top @click="backTopClick" v-show="isShowTopBack"></back-top>

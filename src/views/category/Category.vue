@@ -1,67 +1,102 @@
 <template>
-  <div class="category">  
+  <div id="category">  
       <nav-bar class="nav">
         <template v-slot:center>
           <div class="search">
             <i class="fas fa-search"></i>
             <input type="text" class="input">
           </div>
-          </template>
+        </template>
       </nav-bar>
       <div class="wrapper">
-        <sort-bar class="sort" :titles="titles"></sort-bar>
+        <category-sort-bar :sortbartitles="titles" @sortClick="sortBarClick"></category-sort-bar>
         <b-scroll class="category-wrapper">     
-          <sort-list></sort-list>
-          <li>1</li>
-          <li>1</li>
-          <li>1</li>
+          <category-sort-list :categorySortList="sortList" @listClick="listClick"></category-sort-list>
         </b-scroll>
       </div>
   </div>  
 </template>
 
 <script>
-import SortBar from './SortBar'
-import SortList from './SortList'
+import CategorySortBar from './CategorySortBar'
+import CategorySortList from './CategorySortList'
 import NavBar from 'components/common/NavBar'
 import BScroll from 'components/common/BScroll'
 
-import {getCategoryData} from 'network/category'
+import {getCategory,getSubCategory} from 'network/category'
 export default {
   name: 'Category',
   components:{
     BScroll,
     NavBar,
-    SortBar,
-    SortList,
+    CategorySortBar,
+    CategorySortList,
   },
   data(){
-    return {
-      /* '流行','上衣','裤子','裙子','内衣','女鞋','男友','包包','运动','配饰','美妆','个护','家居','百货','母婴','食品', */
-      titles:['流行','上衣','裤子','裙子','内衣'],
-      sorts:{
-        pop:{ page: 0, list: [] },
-        coat:{ page: 0, list: [] },
-        jeans:{ page: 0, list: [] },
-        dress:{ page: 0, list: [] },
-        sweater:{ page: 0, list: [] },
-        shirt:{ page: 0, list: [] },
-        skirt:{ page: 0, list: [] },
-        suit:{ page: 0, list: [] },
-        shoes:{ page: 0, list: [] },
-        accessories:{ page: 0, list: [] },
-        overcoat:{ page: 0, list: [] },
-      },
+    return{
+      titles:[],
+      maitKey:[],
+      miniWallkeyIndex:0,
+      //在store内定义一个相同的数组，分类详情页使用
+      //miniWallkey:[],
+      sortList:[]
     }
   },
-  create(){
-    this.categoryData()
+  created(){
+    //获取导航栏名称和对应的接口值
+    this.category()
   },
   methods:{
-    categoryData(){
-      getCategoryData().then((res) => {
-        console.log(res);
+    category(){
+      getCategory().then(res => {
+        //console.log(res);
+        let titles = []//解决watch无法监听this.titles的变化问题，由于js限制，可能无法监听数组长度的变化
+        let maitKey = []
+        let miniWallkey = []
+        for(let item of res.data.category.list){
+          titles.push(item.title)
+          maitKey.push(item.maitKey)
+          miniWallkey.push(item.miniWallkey)
+        } 
+        this.titles = titles
+        this.maitKey = maitKey
+        //this.miniWallkey = miniWallkey
+        
+        //获取第一个标题的数据并传递给子组件展示
+        this.subCategory(0)
+
+        //将miniWallkey放到vuex上
+        this.$store.dispatch('categoryminiWallkey',miniWallkey)
       })
+      
+    },
+
+    //获取各标题具体数据的函数，maitKey接口
+    subCategory(index){
+      
+      //将标题对应的index传递给miniWallkey
+      this.miniWallkeyIndex = index
+
+      //获取标题对应的的分类list
+      getSubCategory(this.maitKey[index]).then(res => {
+          //console.log(res.data.list);
+          let sortList = []
+          for(let item of res.data.list){
+            sortList.push(item)
+          } 
+          this.sortList = sortList
+        })
+    },
+
+    //点击切换标题和对应内容的函数
+    sortBarClick(index){
+      this.subCategory(index)
+    },
+    //sortlist点击对应跳转到categorydetail页面，这里将对应的miniWallkey传递到vuex
+    listClick(){
+      //将对应的index放到vuex上
+      let index = this.miniWallkeyIndex
+      this.$store.dispatch('categoryminiWallkeyIndex',index)
     },
   },
 }
@@ -69,6 +104,10 @@ export default {
 
 <style scoped>
 @import "~assets/css/base.css";
+
+#category{
+  height: 100vh;
+}
 .nav{
   position: fixed;
   top: 0;
@@ -110,9 +149,10 @@ export default {
   display: flex;
   flex-direction: row;
 }
-.sort{
+/* .sort{
   width: 60px;
-}
+  height: calc(100% - 44px - 40px);
+} */
 .category-wrapper{
   flex: 1;
   background-color: #fff;

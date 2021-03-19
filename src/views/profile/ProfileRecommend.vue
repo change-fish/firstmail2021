@@ -4,8 +4,13 @@
 
 <script>
 export default {
-  name:'SortList',
-
+  name:'ProfileRecommend',
+  data(){
+    return{
+      recommends:[]
+    }
+  },
+  
 }
 </script>
 

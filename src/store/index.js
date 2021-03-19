@@ -2,7 +2,9 @@ import { createStore } from 'vuex'
 
 const store = createStore({
   state: {
-    cartList:[]
+    cartList:[],
+    miniWallkeyIndex:0,
+    miniWallkey:[]
   },
   mutations: {
     //mutation内做的事情尽量少一点
@@ -13,6 +15,12 @@ const store = createStore({
     addToCart(state,payLoad){
       state.cartList.push(payLoad)
     },
+    categoryKeys(state,keys){
+      state.miniWallkey = keys
+    },
+    toCategoryDetail(state,index){
+      state.miniWallkeyIndex = index
+    }
   },
   actions: {
     //先判断购物车内是否已经有该商品，如果有，数量加一，如果没有，加到购物车内
@@ -40,6 +48,14 @@ const store = createStore({
         }
       })
     },
+    
+    categoryminiWallkey(context,keys){
+      context.commit('categoryKeys',keys)
+    },
+    categoryminiWallkeyIndex(context,index){
+      context.commit('toCategoryDetail',index)
+    },
+    
   },
   getters:{
     cartLength(state){

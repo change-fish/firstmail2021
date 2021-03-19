@@ -1,6 +1,6 @@
 <template>
-  <div class="sort">
-    <div v-for="(item,index) in titles" :key="index" 
+  <div class="sort" v-if="Object.keys(sortTitles).length !==0">
+    <div v-for="(item,index) in sortTitles" :key="index" 
      class="sort-bar-item"
      :class="{active:index === currentIndex}"
      @click="sortBarClick(index)">
@@ -11,9 +11,9 @@
 
 <script>
 export default {
-  name:'SortBar',
+  name:'CategorySortBar',
   props:{
-    titles:{
+    sortbartitles:{
       type:Array,
       default(){
         return []
@@ -23,34 +23,41 @@ export default {
   data(){
     return{
       currentIndex: 0,
+      sortTitles:[],
     }
   },
-  mounted(){
-    console.log(this.titles)
-  },
+  watch: { 
+    sortbartitles: { 
+      handler(newVal){ 
+        this.sortTitles = newVal 
+        //console.log(this.sortTitles)
+      }
+    },
+  }, 
   methods:{
     sortBarClick(index){
       this.currentIndex = index
       this.$emit('sortClick',index)
     },
-  }
+  },
+
 }
 </script>
 
 <style scoped>
 .sort{
-  height: calc(100% - 44px - 40px);
+  width: 70px;
   display: flex;
-  width: 60px;
-  background-color: #fee;
+  background-color: #eee;
   flex-direction: column;
+  overflow-y: scroll;
 }
 .sort-bar-item{
   flex: 1;
-  height: 30px;
+  height: 25px;
   text-align: center;
   font-size: 15px;
-  line-height: 30px;
+  line-height: 25px;
   color: #333;
   border-bottom:2px solid #fff;
 }

@@ -1,11 +1,24 @@
 import {request} from './request.js'
 
-export function getCategoryData(){
+export function getCategory(){
   return request({
     url:'/category',
-   /*  params:{
-      type,
-      page,
-    } */
+  })
+}
+
+export function getSubCategory(maitKey){
+  return request({
+    url:'/subcategory',
+    params:{
+      maitKey
+    }
+  })
+}
+export function getSubCategoryDetail(miniWallkey){
+  return request({
+    url:'/subcategory/detail',
+    params:{
+      miniWallkey,
+    }
   })
 }

@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped>
-@import "~assets/css/base.css";
+@import "~assets/css/fontawesome/css/all.css";
 .user{
   width: 100%;
   height: 50px;

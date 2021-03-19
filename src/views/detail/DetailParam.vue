@@ -36,13 +36,17 @@ export default {
   },
   watch: { 
     detailParam: { 
-      handler(newVal){ 
+      deep: true,
+      immediate: true,
+      handler(newVal){
         this.params = newVal; 
         //console.log(newVal);
       }
     },
   }, 
-  
+  /* created(){
+    console.log(this.params);
+  } */
 }
 </script>
 <style scoped>

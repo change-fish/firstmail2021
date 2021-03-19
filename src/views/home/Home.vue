@@ -96,7 +96,6 @@ export default {
     this.$refs.bscroll.bScroll.refresh()
     //console.log(this.saveY);
     this.$refs.bscroll.bScroll.scrollTo(0,this.saveY,0)
-    
   },
   deactivated(){
     this.saveY = this.$refs.bscroll.getSaveY()
